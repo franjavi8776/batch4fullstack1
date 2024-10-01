@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body);
   const { nombre, apellido, email, estado } = req.body;
 
   const cliente = `INSERT INTO clientes(nombre, apellido, email, estado) VALUES ("${nombre}", "${apellido}", "${email}", "${estado}");`;
@@ -44,9 +45,12 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
+  console.log(req.params);
+  console.log(req.body);
+
   const { nombre, apellido, email, estado } = req.body;
   const { id } = req.params;
-  console.log(id);
+  //console.log(id);
 
   const cliente = `UPDATE clientes SET 
     nombre = '${nombre}',
